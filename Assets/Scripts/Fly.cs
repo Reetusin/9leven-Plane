@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Fly : MonoBehaviour
 {
@@ -8,9 +9,19 @@ public class Fly : MonoBehaviour
 
     public float jumpForce = 100;
 
+    private int score = 0;
+
+    public TextMeshProUGUI scoreText;
+
+    public SpriteRenderer plane;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        plane = GetComponent<SpriteRenderer>();
+
+
     }
 
     void Update()
@@ -34,5 +45,10 @@ public class Fly : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, -30);
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        scoreText.text = (++score).ToString("0000");
     }
 }
