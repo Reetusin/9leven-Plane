@@ -18,22 +18,20 @@ public class Fly : MonoBehaviour
     public SpriteRenderer plane;
 
     public AudioClip successSound;
+    public AudioClip kaboom;
 
     private AudioSource audioSource;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
         plane = GetComponent<SpriteRenderer>();
-
         audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
@@ -43,7 +41,7 @@ public class Fly : MonoBehaviour
             }
         }
 
-        if(rb.velocity.y > 0)
+        if (rb.velocity.y > 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 30);
         }
@@ -57,14 +55,14 @@ public class Fly : MonoBehaviour
     {
         scoreText.text = (++score).ToString("0000");
         audioSource.PlayOneShot(successSound);
-
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        audioSource.PlayOneShot(kaboom);
+
         scoreManager.ShowScoreBoard(score);
+
         gameObject.SetActive(false);
-
-
     }
 }
