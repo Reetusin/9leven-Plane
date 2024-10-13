@@ -5,6 +5,8 @@ using TMPro;
 
 public class Fly : MonoBehaviour
 {
+    public ScoreManager scoreManager;
+
     private Rigidbody2D rb;
 
     public float jumpForce = 100;
@@ -15,13 +17,17 @@ public class Fly : MonoBehaviour
 
     public SpriteRenderer plane;
 
+    public AudioClip successSound;
+
+    private AudioSource audioSource;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
         plane = GetComponent<SpriteRenderer>();
 
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -47,8 +53,18 @@ public class Fly : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerExit2D(Collider2D col)
     {
         scoreText.text = (++score).ToString("0000");
+        audioSource.PlayOneShot(successSound);
+
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        scoreManager.ShowScoreBoard(score);
+        gameObject.SetActive(false);
+
+
     }
 }
