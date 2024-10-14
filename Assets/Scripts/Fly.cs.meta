@@ -3,7 +3,12 @@ guid: 57a8dcec7dc8734478fe489f3e19cd0a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - scoreManager: {instanceID: 0}
+  - scoreText: {instanceID: 0}
+  - plane: {instanceID: 0}
+  - successSound: {instanceID: 0}
+  - kaboom: {fileID: 8300000, guid: 6fac3159cdabcc64582de13e6bb5ac32, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

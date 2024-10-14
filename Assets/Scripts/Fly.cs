@@ -59,10 +59,10 @@ public class Fly : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
+
         audioSource.PlayOneShot(kaboom);
 
         scoreManager.ShowScoreBoard(score);
-
         gameObject.SetActive(false);
     }
 }
