@@ -383,6 +383,9 @@ MonoBehaviour:
   plane: {fileID: 0}
   successSound: {fileID: 8300000, guid: 3ae39590ffc13354f8e2d54db6084244, type: 3}
   kaboom: {fileID: 8300000, guid: 6fac3159cdabcc64582de13e6bb5ac32, type: 3}
+  fallSound: {fileID: 0}
+  upSound: {fileID: 8300000, guid: 40e80e6ba0a8e4f4b9110d4eb80050d5, type: 3}
+  lmaoSprite: {fileID: 21300000, guid: aba3188546826f146843db9c92993b46, type: 3}
 --- !u!95 &172546999
 Animator:
   serializedVersion: 5
@@ -2176,52 +2179,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604476514}
   m_CullTransparentMesh: 1
---- !u!1 &1656323418
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1656323420}
-  - component: {fileID: 1656323419}
-  m_Layer: 0
-  m_Name: RocketSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1656323419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656323418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f64d2b61915885b4db9c650fe47a0f17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Didis: {fileID: 8850620859338309229, guid: 5b70f1a17bac83d4880c220cf58ccd4d, type: 3}
-  spawnRate: 1
---- !u!4 &1656323420
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656323418}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.53, y: 0.25453144, z: 9.005814}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2009436056
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,4 +2460,3 @@ SceneRoots:
   - {fileID: 1555609166}
   - {fileID: 244266342}
   - {fileID: 722129163}
-  - {fileID: 1656323420}

@@ -20,7 +20,14 @@ public class Fly : MonoBehaviour
     public AudioClip successSound;
     public AudioClip kaboom;
 
+    public AudioClip fallSound;
+    public AudioClip upSound;
     private AudioSource audioSource;
+
+    private bool isPlayingFallSound = false;
+    private bool isPlayingUpSound = false;
+
+    public Sprite lmaoSprite;
 
     void Start()
     {
@@ -41,6 +48,30 @@ public class Fly : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            audioSource.PlayOneShot(kaboom);
+        }
+
+        if (rb.velocity.y > 0 && !isPlayingUpSound)
+        {
+            audioSource.PlayOneShot(upSound);
+            isPlayingUpSound = true;
+            isPlayingFallSound = false;
+        }
+        else if (rb.velocity.y < 0 && !isPlayingFallSound)
+        {
+            audioSource.PlayOneShot(fallSound);
+            isPlayingFallSound = true;
+            isPlayingUpSound = false;
+        }
+
+        if (rb.velocity.y == 0)
+        {
+            isPlayingFallSound = false;
+            isPlayingUpSound = false;
+        }
+
         if (rb.velocity.y > 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 30);
@@ -59,10 +90,10 @@ public class Fly : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        plane.sprite = lmaoSprite;
 
         audioSource.PlayOneShot(kaboom);
-
         scoreManager.ShowScoreBoard(score);
-        gameObject.SetActive(false);
+        enabled = false;
     }
 }

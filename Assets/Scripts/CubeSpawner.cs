@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RocketSpawnre : MonoBehaviour
+public class CubeSpawner : MonoBehaviour
 {
     public GameObject Didis;
 
